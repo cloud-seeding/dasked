@@ -135,9 +135,9 @@ def process_month(group, year, month, variables, root):
 
     group_results_df = pd.DataFrame(data_dicts)
 
-    os.makedirs("./negative_complete", exist_ok=True)
+    os.makedirs("./negative_same_loc", exist_ok=True)
 
-    output_file = f"./negative_complete/ngc_{year}{str(month).zfill(2)}.csv"
+    output_file = f"./negative_same_loc/ngs_{year}{str(month).zfill(2)}.csv"
 
     logger.info(
         f"\033[32mSaving results for Year: {year}, Month: {month} to {output_file}\033[0m")
@@ -152,7 +152,7 @@ def main():
     root = "/media/bharxhav/valhalla/NARR"
     variables = os.listdir(root)
 
-    df = pd.read_csv('./assets/negative_class_random_complete.csv')
+    df = pd.read_csv('./assets/negative_class_same_locations.csv')
 
     df['initialdate'] = pd.to_datetime(df['initialdate'])
     df['year'] = df['initialdate'].dt.year
